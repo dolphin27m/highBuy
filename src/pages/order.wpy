@@ -1,0 +1,67 @@
+<!--  -->
+<template>
+    <tabBar></tabBar>
+</template>
+
+<script>
+import wepy from 'wepy'
+import tabBar from '../components/tabBar'
+export default class Example extends wepy.page {
+  config = {
+    navigationBarTitleText: '订单'
+  }
+
+  data = {}
+
+  components = {
+    tabBar: tabBar
+  }
+
+  methods = {}
+
+  events = {}
+
+  watch = {}
+
+  computed = {}
+
+  onLoad() {}
+
+  onShow() {}
+}
+</script>
+
+<style lang='less'>
+.tab-box {
+  background-color: #f4f4f4;
+  .tab-bar {
+    display: flex;
+    margin-bottom: 30rpx;
+    height: 100rpx;
+    background-color: #fff;
+    .item {
+      flex: 1;
+      line-height: 100rpx;
+      font-size: 30rpx;
+      text-align: center;
+      &.active {
+        color: #eb4450;
+        position: relative;
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 12rpx;
+          background-color: #eb4450;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+  .tab-content {
+    background-color: #fff;
+  }
+}
+</style>

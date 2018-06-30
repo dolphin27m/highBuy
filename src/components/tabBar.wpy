@@ -1,0 +1,83 @@
+<!--  -->
+<template>
+  <view class="tab-box">
+        <!-- 顶部区域 -->
+        <view class="tab-bar">
+            <view @tap="selectItem(0)" class="item {{selectIndex==0?'active':''}}">全部</view>
+            <view @tap="selectItem(1)" class="item {{selectIndex==1?'active':''}}">代付款</view>
+            <view @tap="selectItem(2)" class="item {{selectIndex==2?'active':''}}">已付款</view>
+            <view @tap="selectItem(3)" class="item {{selectIndex==3?'active':''}}">退款/退货</view>
+        </view>
+        <view class="tab-content">
+            <view hidden="{{selectIndex!=0}}" class="item">1</view>
+            <view hidden="{{selectIndex!=1}}" class="item">2</view>
+            <view hidden="{{selectIndex!=2}}" class="item">3</view>
+            <view hidden="{{selectIndex!=3}}" class="item">4</view>
+        </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Example extends wepy.component {
+  props = {}
+
+  data = {
+    selectIndex: 0
+  }
+
+  components = {}
+
+  methods = {
+    selectItem(index) {
+      console.log(index)
+      this.selectIndex = index
+    }
+  }
+
+  events = {}
+
+  watch = {}
+
+  computed = {}
+
+  onLoad() {}
+
+  onShow() {}
+}
+</script>
+
+<style lang='less'>
+.tab-box {
+  background-color: #f4f4f4;
+  .tab-bar {
+    display: flex;
+    margin-bottom: 30rpx;
+    height: 100rpx;
+    background-color: #fff;
+    .item {
+      flex: 1;
+      line-height: 100rpx;
+      font-size: 30rpx;
+      text-align: center;
+      &.active {
+        color: #eb4450;
+        position: relative;
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 12rpx;
+          background-color: #eb4450;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+  .tab-content {
+    background-color: #fff;
+  }
+}
+</style>
