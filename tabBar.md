@@ -70,7 +70,7 @@
     ⑤引用组件 ，以`<script>`脚本部分中所声明的组件ID为名命名自定义标签，从而在`<template>`模板部分中插入组件 
      <view class="tab-box">
         <!-- 顶部区域 -->
-        <tabBar :tabList:sync={{tabList}} :selectIndex={{selectIndex}}></tabBar>
+        <tabBar :tabList.sync="tabList" :selectIndex="selectIndex"></tabBar>
         <view class="tab-content">
             <view hidden="{{selectIndex!=0}}" class="item">1</view>
             <view hidden="{{selectIndex!=1}}" class="item">2</view>
